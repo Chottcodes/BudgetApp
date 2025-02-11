@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Document</title>
+</head>
+<body class="bg-[#090920] h-screen font-sans flex flex-col gap-2">
+    <div class="w-full h-[15%] mt-3 flex flex-col justify-center items-center gap-5 text-white">
+       <div class="text-4xl"><h1>Budget:$<span id="user-Budget-Text"></span></h1></div>
+        <div class="text-2xl"><h4>Total:$<span id="user-Total-Text"></span></h4></div>
+    </div>
+
+    <div class="h-[70%]  w-full  flex flex-col justify-center">
+        <div id="change-budget-amount-page" class=" h-[30%] hidden  flex justify-center items-center gap-3">
+            <input type="number" id="budget-Input" placeholder="Enter Budget" class=" h-[30%] w-[60%] rounded-lg border border-amber-50 text-white text-2xl">
+            <button id="budget-input-Submit-BTN" class="w-[10%] h-[30%] rounded-lg" ><img src="./assets/add.png" alt="plus sign"></button>
+        </div>
+
+        <div id="add-Expenses" class="h-[30%] hidden flex justify-center items-center gap-1">
+            <input type="text" id="expense-Name-Input" placeholder="Expense Name" class=" h-[30%] w-[60%] rounded-lg border border-amber-50 text-white text-2xl">
+            <input type="number" id="expenses-Cost-Input" placeholder="Cost" class=" h-[30%] w-[60%] rounded-lg border border-amber-50 text-white text-2xl">
+            <button id="expense-input-add-Btn" class="w-[10%] h-[30%] rounded-lg" ><img src="./assets/add.png" alt="plus sign"></button>
+        </div>
+
+        <div id="expense-List-Container" class="h-full   w-full flex flex-col items-center text-3xl text-white">
+            <div class="flex justify-evenly"><h1>Expenses</h1><button id="plus-BTN-Expense" class="w-[10%]"><img src="./assets/add.png" alt="plus symbol"></button></div>
+            <hr class="bg-white w-[50%] mt-3">
+            <div class=" h-full w-full mt-3 flex flex-col items-center overflow-y-auto">
+                <ul class="flex flex-col justify-center gap-5 w-[95%] " id="expenses-list">
+                    <li class="border border-green-400 rounded-lg flex justify-around"><div class="w-[25%]  overflow-x-auto whitespace-nowrap"><h1>Netsdfsdflix</h1></div><div class="w-[25%]"><h1>$14</h1></div>
+                    <button id="remove-button" class="w-[10%]"><img src="./assets/subtraction.png" class="object-contain w-[60%]" alt="subtraction sign"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="expense-Tier-Container" class="h-full hidden w-full flex flex-col items-center text-3xl text-white">
+            <div class="flex justify-evenly"><h1>Expenses</h1><button id="plus-BTN-Expense-Tier" class="w-[10%]"><img src="./assets/add.png" alt="plus symbol"></button></div>
+            <hr class="bg-white w-[50%] mt-3">
+            <div class=" h-full w-full mt-3 flex flex-col items-center">
+                <h1>Expense Tier List</h1>
+                <ul class="flex flex-col justify-center gap-5 w-[95%] mt-5" id="expenses-list">
+                    <li class="border border-green-600 rounded-lg flex justify-around">
+                        Budget Friendly
+                    </li>
+                    <li class="border border-amber-400 rounded-lg flex justify-around">
+                        Can you go without it?
+                    </li>
+                    <li class="border border-red-500 rounded-lg flex justify-around">
+                        That's pricey!!!
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bg-black  h-[11%] w-full flex justify-center">
+        <div class="flex justify-center text-white w-[30%]  border-white"><button id="budget-button" class="w-[70%] flex flex-col justify-center items-center text-lg"><img src="./assets/save-money (1).png" class="object-contain w-[50%]" alt="money symbol"><p>Budget</p></button></div>
+        <div class="flex justify-center text-white w-[30%]  border-white"><button id="expense-button" class="w-[70%] flex flex-col justify-center items-center text-lg"><img src="./assets/expenses.png" class="object-contain w-[45%]" alt="money symbol"><p>Expenses</p></button></div>
+        <div class="flex justify-center text-white w-[30%]  border-white"><button id="home-button" class="w-[70%] flex flex-col justify-center items-center text-lg"><img src="./assets/home.png" class="object-contain w-[45%]" alt="money symbol"><p>Home</p></button></div>
+    </div>
+    <script src="/Scripts/RenderPages.js" type="module"></script>
+    <script src="/Scripts/BudgetInput.js" type="module"></script>
+    <script src="/Scripts/Expenses.js" type="module"></script>
+</body>
+</html>
