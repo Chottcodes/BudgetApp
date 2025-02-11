@@ -1,3 +1,5 @@
+import { calculate,BudgetTotalText } from "./BudgetInput.js";
+
 const ExpenseNameInput = document.getElementById("expense-Name-Input")
 const ExpenseCostInput=document.getElementById("expenses-Cost-Input")
 const ExpenseButtonAddButton=document.getElementById("expense-input-add-Btn");
@@ -15,7 +17,6 @@ for(let i=0; i<expenses.length;i++)
         let expenseCost = parseFloat(expenses[i][1]);
         Total += expenseCost;
     }
-let whatsLeft= Total - userTotal
 
 
 
@@ -24,7 +25,8 @@ ExpenseButtonAddButton.addEventListener("click",()=>{
     const expenseCost = parseFloat(ExpenseCostInput.value);
     expenses.push([expenseName,expenseCost])
     localStorage.setItem("Cost",JSON.stringify(expenses));
-    
+  
+    BudgetTotalText.innerText=calculate();
 })
 
 const ShowMyList=()=>{
@@ -72,11 +74,14 @@ const ShowMyList=()=>{
             {
                 if(expenses[i] === expense)
                 {
+                    userTotal -= parseFloat(expenses[i][1]);
                     expenses.splice(i,1)
                     break;
                 }
             }
             localStorage.setItem("Cost", JSON.stringify(expenses))
+            localStorage.setItem("userTotal", userTotal);
+            BudgetTotalText.innerText = calculate();
             ShowMyList();
         })
 
